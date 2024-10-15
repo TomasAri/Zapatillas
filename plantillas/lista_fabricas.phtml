@@ -1,0 +1,9 @@
+<ul>
+    <?php 
+        if(isset($fabricas)){
+            foreach($fabricas as $fabrica){
+                echo '<li>' . $fabrica->nombre . '</li>'; 
+            }
+        }
+    ?>
+</ul>

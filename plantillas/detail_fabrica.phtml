@@ -1,0 +1,25 @@
+
+<?php
+    require './plantillas/layouts/header.phtml';
+
+
+    if(isset($fabrica)){
+        echo '<h1>' . $fabrica->nombre . '</h1>';
+        echo '<p>Pais: ' . $fabrica->pais . '</p>';
+        echo '<p>Importador: ' . $fabrica->importador . '</p>';
+        echo '<p>Cantidad: ' . $fabrica->cantidad . '</p>';
+        echo '<a href="'. BASE_URL .'">Volver</a>';
+    }
+
+    if(isset($models)){
+        echo '<ul>';
+        foreach($models as $modelo){
+            echo '<li>' . $modelo->nombre . '</li>'; 
+            echo '<a href="detallesmodelo/' . $modelo->id_zapatilla . '">Ver mas</a>';
+        }
+        echo '</ul>';
+    }
+    
+    require './plantillas/layouts/footer.phtml'
+
+?>

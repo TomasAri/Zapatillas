@@ -1,0 +1,13 @@
+<?php
+    require './plantillas/layouts/header.phtml';
+
+    if(isset($modelo)){
+        echo '<h1>' . $modelo->nombre . '</h1>';
+        echo '<p>Precio: $' . $modelo->precio . '</p>';
+        echo '<p>Stock: ' . $modelo->stock . '</p>';
+        echo '<p>Fabrica: ' . $modelo->id_fabrica . '</p>';
+        echo '<a href="'. BASE_URL .'">Volver</a>';
+    }
+    
+    require './plantillas/layouts/footer.phtml'
+?>
