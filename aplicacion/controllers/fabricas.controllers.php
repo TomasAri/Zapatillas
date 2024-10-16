@@ -6,9 +6,9 @@ class fabricasControllers{
     private $models;
     private $view;
 
-    public function __construct() {
+    public function __construct($res) {
         $this->models = new fabricaModel(); // Inicializa la propiedad con una instancia de fabricaModel
-        $this->view = new fabricasView(); // Asegúrate de inicializar también la vista si es necesario
+        $this->view = new fabricasView($res->user); // Asegúrate de inicializar también la vista si es necesario
     }
 
 

@@ -1,5 +1,11 @@
 <?php
 class modelosView {
+    
+    public $user = null;
+    public function __construct($user)
+    {
+        $this->user = $user;
+    }
 
     public function showModelos($modelos) {
         // la vista define una nueva variable con la cantida de tareas

@@ -18,7 +18,7 @@ class AuthControllers{
     }
 
     public function login() {
-        if (!isset($_POST['email']) || empty($_POST['email']))  {
+        if (!isset($_POST['user']) || empty($_POST['user']))  {
             return $this->view->showLogin('Falta completar el nombre de usuario');
         }
 
@@ -27,17 +27,17 @@ class AuthControllers{
         
         }
 
-        $email = $_POST['email'];
+        $user = $_POST['user'];
         $password = $_POST['password'];
 
         // Verifico si el usuario existe en la base de datos
-        $userFromDB = $this->models->getUserByEmail($email);
+        $userFromDB = $this->models->getUserByEmail($user);
 
         if($userFromDB && password_verify($password, $userFromDB->password)){
             // Guardo en la sesión el ID del usuario
             session_start();
             $_SESSION['ID_USER'] =  $userFromDB->id;
-            $_SESSION['EMAIL_USER'] =  $userFromDB->email;
+            $_SESSION['NAME_USER'] =  $userFromDB->user;
             $_SESSION['LAST_ACTIVITY'] =  time();
 
             // Redirijo al home
@@ -46,4 +46,11 @@ class AuthControllers{
             return $this->view->showLogin('Usuario o contraseña incorrectos');
         }
     }
+
+    public function logout() {
+        session_start(); // Va a buscar la cookie
+        session_destroy(); // Borra la cookie que se buscó
+        header('Location: ' . BASE_URL);
+    }
+
 }

@@ -2,6 +2,12 @@
 class fabricasView {
     private $db;
 
+    public $user = null;
+    public function __construct($user)
+    {
+        $this->user = $user;
+    }
+
     public function showFabricas($fabricas) {
         // la vista define una nueva variable con la cantida de tareas
         $count = count($fabricas);
