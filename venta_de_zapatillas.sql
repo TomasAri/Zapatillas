@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2024 a las 21:31:16
+-- Tiempo de generación: 16-10-2024 a las 17:53:33
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -51,8 +51,8 @@ INSERT INTO `fabrica` (`id`, `nombre`, `importador`, `pais`, `cantidad`) VALUES
 --
 
 CREATE TABLE `modelo` (
-  `id-zapatilla` int(11) NOT NULL,
-  `id-fabrica` int(11) NOT NULL,
+  `id_zapatilla` int(11) NOT NULL,
+  `id_fabrica` int(11) NOT NULL,
   `precio` int(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `stock` int(100) NOT NULL
@@ -62,12 +62,31 @@ CREATE TABLE `modelo` (
 -- Volcado de datos para la tabla `modelo`
 --
 
-INSERT INTO `modelo` (`id-zapatilla`, `id-fabrica`, `precio`, `nombre`, `stock`) VALUES
+INSERT INTO `modelo` (`id_zapatilla`, `id_fabrica`, `precio`, `nombre`, `stock`) VALUES
 (1, 1, 120, 'Air Force 1 \'07 Next Nature', 5),
 (2, 2, 120, 'Campus 00s', 10),
 (4, 3, 150, 'Samba OG', 5),
 (9, 1, 140, 'Air Jordan', 15),
 (10, 2, 100, 'SL 72 RS', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` char(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `email`, `password`) VALUES
+(1, 'fede@web2.com', '$2y$10$7ETnUHbTs.ELKrCi4j52C.VkA/6VZ5ICFBr/AuOhoyYPhj1/m58e6');
 
 --
 -- Índices para tablas volcadas
@@ -83,7 +102,15 @@ ALTER TABLE `fabrica`
 -- Indices de la tabla `modelo`
 --
 ALTER TABLE `modelo`
-  ADD PRIMARY KEY (`id-zapatilla`);
+  ADD PRIMARY KEY (`id_zapatilla`),
+  ADD KEY `modelo_ibfk_1` (`id_fabrica`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -99,7 +126,13 @@ ALTER TABLE `fabrica`
 -- AUTO_INCREMENT de la tabla `modelo`
 --
 ALTER TABLE `modelo`
-  MODIFY `id-zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -109,7 +142,7 @@ ALTER TABLE `modelo`
 -- Filtros para la tabla `modelo`
 --
 ALTER TABLE `modelo`
-  ADD CONSTRAINT `modelo_ibfk_1` FOREIGN KEY (`id-fabrica`) REFERENCES `fabrica` (`id`);
+  ADD CONSTRAINT `modelo_ibfk_1` FOREIGN KEY (`id_fabrica`) REFERENCES `fabrica` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
