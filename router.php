@@ -2,6 +2,7 @@
 
 require_once './aplicacion/controllers/fabricas.controllers.php';
 require_once './aplicacion/controllers/modelos.controllers.php';
+require_once './aplicacion/controllers/auth.controllers.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -32,9 +33,20 @@ switch($params[0]){
         $controller2 = new modelosControllers();
         $models = $controller2-> showModelosid($params[1]);
         $controller->showFabricaDetails($params[1], $models); // El segundo parámetro es el ID de la fábrica
-            break;
+        break;
     case 'detallesmodelo':
         $controller = new modelosControllers();
         $controller -> showModeloDetails($params[1]);
-            break;
+        break;
+    case 'showLogin':
+        $controller = new AuthControllers();
+        $controller -> showLogin();
+        break;
+    case 'login':
+        $controller = new AuthControllers();
+        $controller -> login();
+        break;
+    default:
+        echo '404 Page Not Found';
+        break;
 }
