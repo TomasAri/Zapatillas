@@ -11,13 +11,7 @@ $action = 'listar';
         $action = $_GET['action'];
     }
 
-$action2 = 'listarmodelo';
-if (!empty( $_GET['action'])) {
-    $action2 = $_GET['action'];
-}
-
 $params = explode('/', $action);
-$params2 = explode('/', $action2);
 
 switch($params[0]){
     case 'listar':
