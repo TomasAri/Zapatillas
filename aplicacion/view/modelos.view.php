@@ -16,5 +16,8 @@ class modelosView {
         require './plantillas/detail_modelo.phtml';
     }
 
+    public function showError($error) {
+        require 'templates/error.phtml';
+    }
 }
 ?>
