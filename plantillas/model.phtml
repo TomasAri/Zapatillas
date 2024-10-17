@@ -1,0 +1,19 @@
+<ul class="list-group">
+    <?php if(isset($modelos)): ?>
+        <?php foreach($modelos as $modelo): ?>
+            <li class="list-group-item item-fabrica d-flex justify-content-between align-items-center">
+                <span>
+                    <?=$modelo->nombre?> 
+                </span>
+                <span>
+                    <a href="detallesmodelo/<?=$modelo->id_zapatilla ?>" class="btn btn-success btn-sm text-white">Ver mas</a>
+                </span>
+            </li> 
+            <?php endforeach; ?>
+    <?php endif; ?>
+</ul>
+<?php if($this->user): ?> 
+    <div class="text-center mt-3">
+        <a href="showAddFabrica/" class="btn btn-primary">Hacer cambios</a>
+    </div>
+    <?php endif; ?>

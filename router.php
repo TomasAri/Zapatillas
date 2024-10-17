@@ -21,6 +21,12 @@ switch($params[0]){
     case 'listar':
         sessionAuth($res);
         $controller = new fabricasControllers($res);
+        $controller2 = new modelosControllers($res);
+        $controller->showListarFabricas($controller2);
+        break;
+    case 'listarfabrica':
+        sessionAuth($res);
+        $controller = new fabricasControllers($res);
         $controller->showFabricas();
         break;
     case 'listarmodelo':
@@ -58,7 +64,6 @@ switch($params[0]){
         $controller = new fabricasControllers($res);
         $controller-> deleteFab($params[1]);
         break;
-     
     case 'showLogin':
         $controller = new AuthControllers();
         $controller -> showLogin();

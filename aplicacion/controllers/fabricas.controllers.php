@@ -17,6 +17,12 @@ class fabricasControllers{
         return $this->view->showFabricas($fabricas);
     }
 
+    public function showListarFabricas($model){
+        $models = $model->getmodelos();
+        $fabricas = $this->models->getFabricas();
+        return $this->view->showListFabricas($fabricas, $models);
+    }
+
     public function showFabricaDetails($id, $models) {
         $fabrica = $this->models->getFabrica($id);
         if ($fabrica) {

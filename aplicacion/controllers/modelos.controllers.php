@@ -11,6 +11,15 @@ class modelosControllers{
         $this->view = new modelosView($res->user); // Asegúrate de inicializar también la vista si es necesario
     }
 
+    public function showListarModelos(){
+        $modelos = $this->models->getModelos();
+        return $this->view->showListModelos($modelos);
+    }
+
+    public function getmodelos(){
+        $modelos = $this->models->getModelos();
+        return $modelos;
+    }
 
     public function showModelos(){
         $modelos = $this->models->getModelos();
