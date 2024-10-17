@@ -2,23 +2,22 @@
 
 <?php require './plantillas/addfabrica.phtml';?>
 
-<ul class= "list-group">
+<ul class="list-group">
     <?php if(isset($fabricas)): ?>
         <?php foreach($fabricas as $fabrica): ?>
-            <li class= "list-group-item item-fabrica">
-                <div>
+            <li class="list-group-item item-fabrica d-flex justify-content-between align-items-center">
+                <span>
                     <b><?=$fabrica->nombre; ?></b>
-                </div>
-                <div class="actions">
-                    <button type="submit" class="btn">
-                        <a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a>
+                </span>
+                <span class="actions">
+                    <button type="button" class="btn btn-success btn-sm">
+                        <a href="detallesfabrica/<?=$fabrica->id;?>" class="text-white">Ver más</a>
                     </button>
-                    <button type="submit" class="btn">
-                        <a href="delete/<?=$fabrica->id;?>">Eliminar</a>
+                    <button type="button" class="btn btn-danger btn-sm ml-2">
+                        <a href="delete/<?=$fabrica->id;?>" class="text-white">Eliminar</a>
                     </button>
-                </div>
+                </span>
             </li>
-            
         <?php endforeach; ?>
     <?php endif; ?>
 </ul>
