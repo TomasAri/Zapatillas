@@ -1,12 +1,31 @@
 .item-fabrica .actions a {
-    text-decoration: none;
-    color: white;
-}
-
-.item-fabrica .actions button {
-    margin-left: 5px;
+    text-decoration: none; 
+    color: white; 
+    display: block; 
+    padding: 5px 10px; 
 }
 
 .item-fabrica .actions a:hover {
-    text-decoration: underline; 
+    text-decoration: none; 
+    background-color: #0056b3; 
+}
+
+.item-fabrica .actions button {
+    margin-left: 5px; 
+    padding: 0; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.text-center a.btn {
+    text-decoration: none;
+    color: white; 
+    background-color: #007bff; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+}
+
+.text-center a.btn:hover {
+    background-color: #0056b3; 
+    color: white; 
 }
