@@ -5,13 +5,20 @@
 <ul class= "list-group">
     <?php if(isset($fabricas)): ?>
         <?php foreach($fabricas as $fabrica): ?>
-            <li class= "list-group-item"> <?=$fabrica->nombre; ?></li> 
-            <button type="submit" class="btn">
-                <a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a>
-            </button>
-            <button type="submit" class="btn">
-                <a href="delete/<?=$fabrica->id;?>">Eliminar</a>
-            </button>
+            <li class= "list-group-item item-fabrica">
+                <div>
+                    <b><?=$fabrica->nombre; ?></b>
+                </div>
+                <div class="actions">
+                    <button type="submit" class="btn">
+                        <a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a>
+                    </button>
+                    <button type="submit" class="btn">
+                        <a href="delete/<?=$fabrica->id;?>">Eliminar</a>
+                    </button>
+                </div>
+            </li>
+            
         <?php endforeach; ?>
     <?php endif; ?>
 </ul>
