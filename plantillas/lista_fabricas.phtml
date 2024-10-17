@@ -6,17 +6,17 @@
     <?php if(isset($fabricas)): ?>
         <?php foreach($fabricas as $fabrica): ?>
             <li class= "list-group-item item-fabrica">
-                <div>
+                <span>
                     <b><?=$fabrica->nombre; ?></b>
-                </div>
-                <div class="actions">
+                </span>
+                <span class="actions">
                     <button type="submit" class="btn">
                         <a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a>
                     </button>
                     <button type="submit" class="btn">
                         <a href="delete/<?=$fabrica->id;?>">Eliminar</a>
                     </button>
-                </div>
+                </span>
             </li>
             
         <?php endforeach; ?>
