@@ -1,12 +1,12 @@
-.action{
-    display: flex;
-    align-items: end;
+.item-fabrica .actions a {
+    text-decoration: none;
+    color: white;
 }
 
 .item-fabrica .actions button {
-    margin-left: 5px; /* Espaciado entre los botones */
+    margin-left: 5px;
 }
 
 .item-fabrica .actions a:hover {
-    text-decoration: underline; /* Subrayar enlaces al pasar el mouse */
+    text-decoration: underline; 
 }
