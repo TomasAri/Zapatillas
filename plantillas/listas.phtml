@@ -1,25 +1,23 @@
-<?php 
-    require './plantillas/layouts/header.phtml';
+<?php require './plantillas/layouts/header.phtml'; ?>
 
-        if(isset($fabricas)){
-            echo '<ul>';
-            foreach($fabricas as $fabrica){
-                echo '<li>' . $fabrica->nombre . '</li>'; 
-                echo '<a href="detallesfabrica/' . $fabrica->id . '">Ver mas</a>';
-            }
-            echo '</ul>';
-        }
+<ul>
+    <?php if(isset($fabricas)): ?>
+        <?php foreach($fabricas as $fabrica): ?>
+            <li> <?=$fabrica->nombre; ?></li> 
+            <button type="submit" class="btn btn-secondary"><a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a></button>
+            <?php endforeach; ?>
+            <?php endif; ?>
+</ul>
+        <?php if($this->user): ?> <button type="submit" class="btn btn-secondary"><a href="showAddFabrica/">Agregar</a></button> <?php endif ?>
 
-        if(isset($modelos)){
-            echo '<ul>';
-            foreach($modelos as $modelo){
-                echo '<li>' . $modelo->nombre . '</li>'; 
-                echo '<a href="detallesmodelo/' . $modelo->id_zapatilla . '">Ver mas</a>';
-            }
-            echo '</ul>';
-        }
-    
-    require './plantillas/layouts/footer.phtml'
-?>
+<ul>
+    <?php if(isset($modelos)): ?>
+        <?php foreach($modelos as $modelo): ?>
+            <li> <?=$modelo->nombre?> </li> 
+            <a href="detallesmodelo/<?=$modelo->id_zapatilla ?>">Ver mas</a>
+            <?php endforeach; ?>
+    <?php endif; ?>
+</ul>
 
 
+<?php require './plantillas/layouts/footer.phtml' ?>

@@ -1,5 +1,5 @@
 <?php
-    require_once './aplicacion/models/user.model.php';
+    require_once './aplicacion/models/auth.model.php';
     require_once './aplicacion/view/auth.view.php';
 
 class AuthControllers{
@@ -31,7 +31,7 @@ class AuthControllers{
         $password = $_POST['password'];
 
         // Verifico si el usuario existe en la base de datos
-        $userFromDB = $this->models->getUserByEmail($user);
+        $userFromDB = $this->models->getUser($user);
 
         if($userFromDB && password_verify($password, $userFromDB->password)){
             // Guardo en la sesión el ID del usuario

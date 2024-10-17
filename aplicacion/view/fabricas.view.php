@@ -3,6 +3,7 @@ class fabricasView {
     private $db;
 
     public $user = null;
+    
     public function __construct($user)
     {
         $this->user = $user;
@@ -24,14 +25,10 @@ class fabricasView {
     public function showError($error) {
         require 'plantillas/error.phtml';
     }
-
-    public function insertTask($nombre, $importador, $pais, $cantidad) { 
-        $query = $this->db->prepare('INSERT INTO fabrica(nombre, importador, pais, cantidad) VALUES (?, ?, ?, ?)');
-        $query->execute([$nombre, $importador, $pais, $cantidad]);
     
-        $id = $this->db->lastInsertId();
-    
-        return $id;
+    public function showListaFabricas($fabricas) {
+        require './plantillas/lista_fabricas.phtml';
     }
+
 }
 ?>

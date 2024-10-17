@@ -7,7 +7,7 @@
             $this->db = new PDO('mysql:host=localhost;dbname=venta de zapatillas;charset=utf8', 'root', '');
         }
 
-        public function getUserByEmail($user){
+        public function getUser($user){
             $query = $this->db->prepare("SELECT * FROM usuario WHERE user = ?");
             $query->execute([$user]);
 

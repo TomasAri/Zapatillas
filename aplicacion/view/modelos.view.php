@@ -1,6 +1,7 @@
 <?php
 class modelosView {
-    
+    private $db;
+
     public $user = null;
     public function __construct($user)
     {
@@ -25,5 +26,7 @@ class modelosView {
     public function showError($error) {
         require 'templates/error.phtml';
     }
+
+    
 }
 ?>

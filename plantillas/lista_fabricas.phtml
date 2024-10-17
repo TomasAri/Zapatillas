@@ -1,9 +1,16 @@
+<?php require './plantillas/layouts/header.phtml'; ?>
+
+<?php require './plantillas/addfabrica.phtml';?>
+
 <ul>
-    <?php 
-        if(isset($fabricas)){
-            foreach($fabricas as $fabrica){
-                echo '<li>' . $fabrica->nombre . '</li>'; 
-            }
-        }
-    ?>
+    <?php if(isset($fabricas)): ?>
+        <?php foreach($fabricas as $fabrica): ?>
+            <li> <?=$fabrica->nombre; ?></li> 
+            <button type="submit" class="btn btn-secondary">
+                <a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a>
+            </button>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </ul>
+
+<?php require './plantillas/layouts/footer.phtml'; ?>

@@ -40,6 +40,18 @@ switch($params[0]){
         $controller = new modelosControllers($res);
         $controller -> showModeloDetails($params[1]);
         break;
+    case 'showAddFabrica':
+        sessionAuth($res);
+        verifyAuth($res);
+        $controller = new fabricasControllers($res);
+        $controller -> ListaaddFab();
+        break; 
+    case 'addFabrica':
+        sessionAuth($res);
+        verifyAuth($res);
+        $controller = new fabricasControllers($res);
+        $controller -> addFab();
+        break; 
     case 'showLogin':
         $controller = new AuthControllers();
         $controller -> showLogin();
