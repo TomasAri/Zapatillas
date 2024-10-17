@@ -49,13 +49,29 @@ class fabricasControllers{
         $id = $this->models->insertFabrica($nombre, $importador, $pais, $cantidad);
        
     
-        // redirijo al home (también podriamos usar un método de una vista para motrar un mensaje de éxito)
+        // redirijo al showAddFabrica (también podriamos usar un método de una vista para motrar un mensaje de éxito)
         header('Location: ' . 'showAddFabrica/');
     }
 
     public function ListaaddFab(){
         $fabricas = $this->models->getAllFabricas();
         $this->view->showListaFabricas($fabricas);
+    }
+
+    public function deleteFab($id){
+        // obtengo la tarea por id
+        $fabrica = $this->models->getFabrica($id);
+
+        if (!$fabrica) {
+            return $this->view->showError("No existe la tarea con el id=$id");
+        }
+
+        // borro la tarea y redirijo
+        $this->models->eraseFab($id);
+
+
+        header('Location: ' . BASE_URL);
+
     }
 
 }

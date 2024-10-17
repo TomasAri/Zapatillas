@@ -41,8 +41,14 @@
         public function getAllFabricas(){
             $query = $this->db->prepare('SELECT * FROM fabrica');
             $query->execute();
-            
+
             return $query->fetchAll(PDO::FETCH_OBJ);
+        }
+
+        public function eraseFab($id){
+            $query = $this->db->prepare('DELETE FROM fabrica WHERE id = ?');
+            $query->execute([$id]);
+            
         }
     }
 

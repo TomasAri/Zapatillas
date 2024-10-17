@@ -51,7 +51,14 @@ switch($params[0]){
         verifyAuth($res);
         $controller = new fabricasControllers($res);
         $controller -> addFab();
-        break; 
+        break;
+    case 'delete':
+        sessionAuth($res);
+        verifyAuth($res); // Verifica que el usuario esté logueado o redirige a login
+        $controller = new fabricasControllers($res);
+        $controller-> deleteFab($params[1]);
+        break;
+     
     case 'showLogin':
         $controller = new AuthControllers();
         $controller -> showLogin();

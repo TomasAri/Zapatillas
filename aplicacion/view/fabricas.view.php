@@ -30,5 +30,6 @@ class fabricasView {
         require './plantillas/lista_fabricas.phtml';
     }
 
+    
 }
 ?>

@@ -3,10 +3,10 @@
     <ul>
             <?php foreach($fabricas as $fabrica): ?>
                 <li> <?=$fabrica->nombre; ?></li> 
-                <button type="submit" class="btn btn-secondary"><a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a></button>
+                <button type="submit" class="btn"><a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a></button>
                 <?php endforeach; ?>
             </ul>
-            <?php if($this->user): ?> <button type="submit" class="btn btn-secondary"><a href="showAddFabrica/">Agregar</a></button> <?php endif ?>
+            <?php if($this->user): ?> <button type="submit" class="btn"><a href="showAddFabrica/">Hacer cambios</a></button> <?php endif ?>
     <?php endif; ?>
 
 <ul>
