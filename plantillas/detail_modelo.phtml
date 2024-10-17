@@ -1,13 +1,11 @@
-<?php
-    require './plantillas/layouts/header.phtml';
+<?php require './plantillas/layouts/header.phtml'; ?>
 
-    if(isset($modelo)){
-        echo '<h1>' . $modelo->nombre . '</h1>';
-        echo '<p>Precio: $' . $modelo->precio . '</p>';
-        echo '<p>Stock: ' . $modelo->stock . '</p>';
-        echo '<p>Fabrica: ' . $modelo->id_fabrica . '</p>';
-        echo '<a href="listarmodelo'.'">Volver</a>';
-    }
+    <?php if(isset($modelo)): ?>
+        <h1> <?=$modelo->nombre ?> </h1>
+        <p>Precio: <?=$modelo->precio ?> </p>
+        <p>Stock: <?=$modelo->stock ?></p>
+        <p>Fabrica: <?= $modelo->id_fabrica ?></p>
+        <a href="listarmodelo/">Volver</a>
+    <?php endif; ?>
     
-    require './plantillas/layouts/footer.phtml'
-?>
+    <?php require './plantillas/layouts/footer.phtml'?>

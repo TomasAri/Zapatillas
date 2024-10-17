@@ -1,25 +1,23 @@
 
-<?php
-    require './plantillas/layouts/header.phtml';
+<?php require './plantillas/layouts/header.phtml';?>
 
 
-    if(isset($fabrica)){
-        echo '<h1>' . $fabrica->nombre . '</h1>';
-        echo '<p>Pais: ' . $fabrica->pais . '</p>';
-        echo '<p>Importador: ' . $fabrica->importador . '</p>';
-        echo '<p>Cantidad: ' . $fabrica->cantidad . '</p>';
-        echo '<a href="'. BASE_URL .'">Volver</a>';
-    }
+    <?php if(isset($fabrica)): ?>
+        <h1> <?=$fabrica->nombre?> </h1>
+        <p>Pais: <?=$fabrica->pais ?></p>
+        <p>Importador: <?=$fabrica->importador?> </p>
+        <p>Cantidad: <?=$fabrica->cantidad?> </p>
+        <a href=" <?= BASE_URL ?>">Volver</a>
+    <?php endif; ?>
 
-    if(isset($models)){
-        echo '<ul>';
-        foreach($models as $modelo){
-            echo '<li>' . $modelo->nombre . '</li>'; 
-            echo '<a href="detallesmodelo/' . $modelo->id_zapatilla . '">Ver mas</a>';
-        }
-        echo '</ul>';
-    }
+
+   <?php if(isset($models)):?> 
+        <ul>
+            <?php foreach($models as $modelo):?>
+                <li> <?=$modelo->nombre ?> </li> 
+                <a href="detallesmodelo/<?=$modelo->id_zapatilla ?>">Ver mas</a>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
     
-    require './plantillas/layouts/footer.phtml'
-
-?>
+<?php require './plantillas/layouts/footer.phtml'; ?>
