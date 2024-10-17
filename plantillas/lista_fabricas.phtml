@@ -2,7 +2,7 @@
 
 <?php require './plantillas/addfabrica.phtml';?>
 
-<ul class= "list-group">
+<ul class="list-group">
     <?php if(isset($fabricas)): ?>
         <?php foreach($fabricas as $fabrica): ?>
             <li class= "list-group-item item-fabrica">
@@ -13,12 +13,11 @@
                     <button type="submit" class="btn">
                         <a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a>
                     </button>
-                    <button type="submit" class="btn">
-                        <a href="delete/<?=$fabrica->id;?>">Eliminar</a>
+                    <button type="button" class="btn btn-danger btn-sm ml-2">
+                        <a href="delete/<?=$fabrica->id;?>" class="text-white">Eliminar</a>
                     </button>
                 </span>
             </li>
-            
         <?php endforeach; ?>
     <?php endif; ?>
 </ul>
