@@ -1,14 +1,13 @@
 <?php require './plantillas/layouts/header.phtml'; ?>
-
-<ul>
     <?php if(isset($fabricas)): ?>
-        <?php foreach($fabricas as $fabrica): ?>
-            <li> <?=$fabrica->nombre; ?></li> 
-            <button type="submit" class="btn btn-secondary"><a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a></button>
-            <?php endforeach; ?>
-            <?php endif; ?>
-</ul>
-        <?php if($this->user): ?> <button type="submit" class="btn btn-secondary"><a href="showAddFabrica/">Agregar</a></button> <?php endif ?>
+    <ul>
+            <?php foreach($fabricas as $fabrica): ?>
+                <li> <?=$fabrica->nombre; ?></li> 
+                <button type="submit" class="btn btn-secondary"><a href="detallesfabrica/<?=$fabrica->id;?>">Ver mas</a></button>
+                <?php endforeach; ?>
+            </ul>
+            <?php if($this->user): ?> <button type="submit" class="btn btn-secondary"><a href="showAddFabrica/">Agregar</a></button> <?php endif ?>
+    <?php endif; ?>
 
 <ul>
     <?php if(isset($modelos)): ?>
