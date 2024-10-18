@@ -42,7 +42,7 @@
             $query = $this->db->prepare('SELECT * FROM fabrica WHERE id = ?');
             $query->execute([$id]);
 
-            $fabrica = $query->fetchAll(PDO::FETCH_OBJ); 
+            $fabrica = $query->fetch(PDO::FETCH_OBJ); 
             
             return $fabrica;
         }

@@ -29,19 +29,19 @@ class modelosView {
         require './plantillas/detail_fabrica.phtml';
     }
 
-    public function showdetailModelo($modelo){
+    public function showdetailModelo($modelo, $nombre_fabrica){
         require './plantillas/detail_modelo.phtml';
     }
 
     public function showError($error) {
-        require 'templates/error.phtml';
+        require './templates/error.phtml';
     }
 
     public function showListaModelos($modelos, $fabricas) {
         require './plantillas/lista_modelos.phtml'; // Cargar la lista de modelos
     }
 
-    public function showEditModelo($modelo) {
+    public function showEditModelo($modelo, $fabricas) {
         // Aca se carga una plantilla que incluye el formulario para editar una fábrica
         require './plantillas/edit_modelo.phtml';
     }

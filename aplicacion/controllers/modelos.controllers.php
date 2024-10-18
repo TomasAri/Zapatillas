@@ -21,21 +21,28 @@ class modelosControllers{
         return $modelos;
     }
 
+    public function getModelo($id_zapatilla){
+        $modelos = $this->models->getModelo($id_zapatilla);
+        return $modelos;
+    }
+
+
     public function showModelos(){
         $modelos = $this->models->getModelos();
         return $this->view->showModelos($modelos);
     }
 
-    public function showModelosid($id_fabrica){
-        $modelos = $this->models->getModelosId($id_fabrica);
+    public function showModelosid($id_modelo){
+        $modelos = $this->models->getModelosId($id_modelo);
         return $modelos;
     }
     
 
-    public function showModeloDetails($id_zapatilla) {
+    public function showModeloDetails($id_zapatilla, $fabrica) {
         $modelo = $this->models->getModelo($id_zapatilla);
+        $nombre_fabrica = $fabrica->nombre;
         if ($modelo) {
-            return $this->view->showdetailModelo($modelo);
+            return $this->view->showdetailModelo($modelo, $nombre_fabrica);
         }
     }
 
@@ -91,10 +98,10 @@ class modelosControllers{
         header('Location: ' . BASE_URL . 'showAddModelo/');
     }
 
-    public function showEditModelo($id) {
-        $fabrica = $this->models->getModelos($id);
-        if ($fabrica) {
-            return $this->view->showEditModelo($fabrica);
+    public function showEditModelo($id, $fabricas) {
+        $modelo = $this->models->getModelo($id);
+        if ($modelo) {
+            return $this->view->showEditModelo($modelo, $fabricas);
         } else {
             return $this->view->showError("La fábrica con el ID=$id no existe.");
         }
@@ -106,21 +113,21 @@ class modelosControllers{
         }
     
         if (!isset($_POST['precio']) || empty($_POST['precio'])) {
-            return $this->view->showError('Falta completar el importador');
+            return $this->view->showError('Falta completar el precio');
         }
     
         if (!isset($_POST['stock']) || empty($_POST['stock'])) {
-            return $this->view->showError('Falta completar el país');
+            return $this->view->showError('Falta completar el stock');
         }
     
-        if (!isset($_POST['fabrica']) || empty($_POST['fabrica'])) {
-            return $this->view->showError('Falta completar el stock');
+        if (!isset($_POST['id_fabrica']) || empty($_POST['id_fabrica'])) {
+            return $this->view->showError('Falta completar la fabrica');
         }
     
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
-        $fabrica = $_POST['fabrica'];
+        $fabrica = $_POST['id_fabrica'];
     
         $this->models->updateModelo($id, $nombre, $precio, $stock, $fabrica);
     

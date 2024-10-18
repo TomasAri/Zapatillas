@@ -77,8 +77,10 @@ switch($params[0]){
     case 'detallesmodelo':
         $controller = new modelosControllers($res);
         $controller2 = new fabricasControllers($res);
-        $models = $controller2-> showFabricasid($params[1]);
-        $controller->showModeloDetails($params[1], $models);
+        $modelo = $controller->getModelo($params[1]);
+        $id_fabrica = $modelo->id_fabrica;
+        $fabrica = $controller2-> showFabricasid($id_fabrica);
+        $controller->showModeloDetails($params[1], $fabrica);
         break;
     case 'showAddModelo':
         sessionAuth($res);
@@ -104,7 +106,9 @@ switch($params[0]){
         sessionAuth($res);
         verifyAuth($res);
         $controller = new modelosControllers($res);
-        $controller->showEditModelo($params[1]);
+        $controller2 = new fabricaModel($res);
+        $fabricas = $controller2->getFabricas();
+        $controller->showEditModelo($params[1], $fabricas);
         break;
     case 'editModelo':
         sessionAuth($res);

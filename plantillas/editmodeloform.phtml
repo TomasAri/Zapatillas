@@ -1,17 +1,24 @@
 <h1>Editar Modelo</h1>
 
-<form action="<?= BASE_URL . 'editModelo/' . $modelo->id_zapatilla ?>" method="post">
+<form action="<?='editModelo/' . $modelo->id_zapatilla ?>" method="post">
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" value="<?= $modelo->nombre ?>" required>
 
     <label for="precio">Precio:</label>
     <input type="number" name="precio" value="<?= $modelo->precio ?>" required>
 
-    <label for="stock">País:</label>
+    <label for="stock">Stock:</label>
     <input type="number" name="stock" value="<?= $modelo->stock ?>" required>
 
-    <label for="id_fabrica">Fabrica:</label>
-    <input type="text" name="id_fabrica" value="<?= $modelo->id_fabrica ?>" required>
+    <div class="mb-3">
+        <label for="id_fabrica" class="form-label">Fábrica:</label>
+        <select name="id_fabrica" class="form-control" required>
+            <option value="" disabled selected>Seleccione una fábrica</option>
+            <?php foreach ($fabricas as $fabrica): ?>
+                <option value="<?= $fabrica->id; ?>"><?= $fabrica->nombre; ?></option> <!-- Cambiado id_fabrica a id -->
+            <?php endforeach; ?>
+        </select>
+    </div>
 
     <button type="submit">Guardar Cambios</button>
     <a href="<?= BASE_URL ?>">Cancelar</a>
