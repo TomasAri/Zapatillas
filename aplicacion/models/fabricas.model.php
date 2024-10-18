@@ -50,6 +50,11 @@
             $query->execute([$id]);
             
         }
+
+        public function updateFab($id, $nombre, $importador, $pais, $cantidad) {
+            $query = $this->db->prepare('UPDATE fabrica SET nombre=?, importador=?, pais=?, cantidad=? WHERE Id=?');
+            $query->execute([$nombre, $importador, $pais, $cantidad, $id]);
+        }
     }
 
 ?>

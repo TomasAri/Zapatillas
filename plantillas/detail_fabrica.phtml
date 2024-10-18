@@ -1,23 +1,49 @@
+<?php require './plantillas/layouts/header.phtml'; ?>
 
-<?php require './plantillas/layouts/header.phtml';?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/bootstrap.min.css"> <!-- Asegúrate de incluir Bootstrap -->
+    <link rel="stylesheet" href="path/to/your/custom.css"> <!-- Tu archivo CSS personalizado -->
+    <title>Detalles de la Fábrica</title>
+</head>
+<body>
 
-
-    <?php if(isset($fabrica)): ?>
-        <h1> <?=$fabrica->nombre?> </h1>
-        <p>Pais: <?=$fabrica->pais ?></p>
-        <p>Importador: <?=$fabrica->importador?> </p>
-        <p>Cantidad: <?=$fabrica->cantidad?> </p>
-        <a href=" <?= BASE_URL ?>">Volver</a>
-    <?php endif; ?>
-
-
-   <?php if(isset($models)):?> 
-        <ul>
-            <?php foreach($models as $modelo):?>
-                <li> <?=$modelo->nombre ?> </li> 
-                <a href="detallesmodelo/<?=$modelo->id_zapatilla ?>">Ver mas</a>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
+<div class="container mt-5">
+    <h1 class="text-center">Detalles de la Fábrica: <?= $fabrica->nombre; ?></h1>
     
+    <div class="card mb-4">
+        <div class="card-header">
+            Información de la Fábrica
+        </div>
+        <div class="card-body">
+            <p><strong>Importador:</strong> <?= $fabrica->importador; ?></p>
+            <p><strong>País:</strong> <?= $fabrica->pais; ?></p>
+            <p><strong>Cantidad:</strong> <?= $fabrica->cantidad; ?></p>
+        </div>
+    </div>
+
+    <h2>Modelos Asociados</h2>
+    <ul class="list-group">
+        <?php if (!empty($models)): ?>
+            <?php foreach ($models as $modelo): ?>
+                <li class="list-group-item">
+                    <strong><?= $modelo->nombre; ?></strong> - <strong>Precio:</strong> $<?= number_format($modelo->precio, 2); ?> - <strong>Stock:</strong> <?= $modelo->stock; ?>
+                </li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li class="list-group-item">No hay modelos asociados a esta fábrica.</li>
+        <?php endif; ?>
+    </ul>
+
+    <div class="mt-4">
+        <a href="listarfabrica" class="btn btn-primary">Volver a la lista de fábricas</a>
+    </div>
+</div>
+
+<script src="path/to/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 <?php require './plantillas/layouts/footer.phtml'; ?>

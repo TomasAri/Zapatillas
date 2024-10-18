@@ -64,6 +64,12 @@ switch($params[0]){
         $controller = new fabricasControllers($res);
         $controller-> deleteFab($params[1]);
         break;
+    case 'edit':
+        sessionAuth($res);
+        verifyAuth($res);
+        $controller = new fabricasControllers($res);
+        $controller-> editFab($_POST['id']);
+        break;
     case 'showLogin':
         $controller = new AuthControllers();
         $controller -> showLogin();

@@ -80,4 +80,37 @@ class fabricasControllers{
 
     }
 
+    public function editFab($id){
+        if (!isset($_POST['nombre']) || empty($_POST['nombre'])) {
+            return $this->view->showError('Falta completar el nombre');
+        }
+    
+        if (!isset($_POST['importador']) || empty($_POST['importador'])) {
+            return $this->view->showError('Falta completar el importador');
+        }
+
+        if (!isset($_POST['pais']) || empty($_POST['pais'])) {
+            return $this->view->showError('Falta completar el pais');
+        }
+
+        if (!isset($_POST['cantidad']) || empty($_POST['cantidad'])) {
+            return $this->view->showError('Falta completar el stock');
+        }
+
+        $nombre = $_POST['nombre'];
+        $importador = $_POST['importador'];
+        $pais = $_POST['pais'];
+        $cantidad = $_POST['cantidad'];
+
+        $fabrica = $this->models->getFabrica($id);
+
+        if (!$fabrica) {
+            return $this->view->showError("No existe la tarea con el id=$id");
+        }
+            
+        $this->models->updateFab($id, $nombre, $importador, $pais, $cantidad);
+
+        header('Location: ' . BASE_URL);
+    }
+
 }
