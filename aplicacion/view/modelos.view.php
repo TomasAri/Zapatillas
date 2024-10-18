@@ -39,7 +39,11 @@ class modelosView {
 
     public function showListaModelos($modelos, $fabricas) {
         require './plantillas/lista_modelos.phtml'; // Cargar la lista de modelos
-        require './plantillas/addmodelo.phtml'; // Cargar el formulario para agregar modelos
+    }
+
+    public function showEditModelo($modelo) {
+        // Aca se carga una plantilla que incluye el formulario para editar una fábrica
+        require './plantillas/edit_modelo.phtml';
     }
 }
 ?>

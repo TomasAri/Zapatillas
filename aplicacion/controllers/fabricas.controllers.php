@@ -81,7 +81,7 @@ class fabricasControllers{
         $this->models->eraseFab($id);
 
 
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL . 'showAddFabrica/');
 
     }
 
@@ -118,7 +118,7 @@ class fabricasControllers{
     
         $this->models->updateFabrica($id, $nombre, $importador, $pais, $cantidad);
     
-        header('Location: ' . BASE_URL . 'listarfabrica');
+        header('Location: ' . BASE_URL . 'showAddFabrica/');
     }
 
 }

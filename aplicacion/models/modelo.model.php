@@ -49,10 +49,15 @@
             return $this->db->lastInsertId();
         }
 
-        public function getAllFabricas() {
-            $query = $this->db->prepare('SELECT * FROM fabrica');
-            $query->execute();
-            return $query->fetchAll(PDO::FETCH_OBJ); 
+        public function eraseModel($id){
+            $query = $this->db->prepare('DELETE FROM modelo WHERE id_zapatilla = ?');
+            $query->execute([$id]);
+            
+        }
+
+        public function updateModelo($id_zapatilla, $nombre, $precio, $stock, $id_fabrica) {
+            $query = $this->db->prepare('UPDATE modelo SET nombre = ?, precio = ?, stock = ?, id_fabrica = ? WHERE id_zapatilla = ?');
+            $query->execute([$nombre, $precio, $stock, $id_fabrica, $id_zapatilla]);
         }
     }
 

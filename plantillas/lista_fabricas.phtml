@@ -2,6 +2,7 @@
 
 <?php require './plantillas/addfabrica.phtml';?>
 
+<br>
 
 <ul class="list-group">
     <?php if(isset($fabricas)): ?>
@@ -15,10 +16,10 @@
                         <a href="detallesfabrica/<?=$fabrica->id;?>" class="text-white">Ver más</a>
                     </button>
                     <button type="button" class="btn btn-danger btn-sm ml-2">
-                        <a href="delete/<?=$fabrica->id;?>" class="text-white">Eliminar</a>
+                        <a href="deleteFab/<?=$fabrica->id;?>" class="text-white">Eliminar</a>
                     </button>
                     <button type="button" class="btn btn-danger btn-sm ml-2">
-                        <a href="edit/<?=$fabrica->id;?>" class="text-white">Editar</a>
+                        <a href="showEditFabrica/<?=$fabrica->id;?>" class="text-white">Editar</a>
                     </button>
                 </span>
             </li>

@@ -2,7 +2,7 @@
 
 <?php require './plantillas/addmodelo.phtml'; ?>
 
- 
+<br>
 
 <ul class="list-group">
     <?php if (isset($modelos)): ?>
@@ -16,10 +16,10 @@
                         <a href="detallesmodelo/<?= $modelo->id_zapatilla; ?>" class="text-white">Ver más</a>
                     </button>
                     <button type="button" class="btn btn-danger btn-sm ml-2">
-                        <a href="delete/<?= $modelo->id_zapatilla; ?>" class="text-white">Eliminar</a>
+                        <a href="deleteModel/<?= $modelo->id_zapatilla; ?>" class="text-white">Eliminar</a>
                     </button>
                     <button type="button" class="btn btn-danger btn-sm ml-2">
-                        <a href="edit/<?= $modelo->id_zapatilla; ?>" class="text-white">Editar</a>
+                        <a href="showEditModelo/<?= $modelo->id_zapatilla; ?>" class="text-white">Editar</a>
                     </button>
                 </span>
             </li>

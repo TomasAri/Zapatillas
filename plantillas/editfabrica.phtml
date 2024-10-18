@@ -1,6 +1,6 @@
 <h1>Editar Fábrica</h1>
 
-<form action="<?= BASE_URL . 'editFabrica/' . $fabrica->id ?>" method="POST">
+<form action="<?= BASE_URL . 'editFabrica/' . $fabrica->id ?>" method="post">
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" value="<?= $fabrica->nombre ?>" required>
 
@@ -14,5 +14,5 @@
     <input type="number" name="cantidad" value="<?= $fabrica->cantidad ?>" required>
 
     <button type="submit">Guardar Cambios</button>
-    <a href="<?= BASE_URL . 'listarfabrica' ?>">Cancelar</a>
+    <a href="<?= BASE_URL ?>">Cancelar</a>
 </form>

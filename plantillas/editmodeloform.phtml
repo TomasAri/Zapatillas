@@ -1,0 +1,18 @@
+<h1>Editar Modelo</h1>
+
+<form action="<?= BASE_URL . 'editModelo/' . $modelo->id_zapatilla ?>" method="post">
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" value="<?= $modelo->nombre ?>" required>
+
+    <label for="precio">Precio:</label>
+    <input type="number" name="precio" value="<?= $modelo->precio ?>" required>
+
+    <label for="stock">País:</label>
+    <input type="number" name="stock" value="<?= $modelo->stock ?>" required>
+
+    <label for="id_fabrica">Fabrica:</label>
+    <input type="text" name="id_fabrica" value="<?= $modelo->id_fabrica ?>" required>
+
+    <button type="submit">Guardar Cambios</button>
+    <a href="<?= BASE_URL ?>">Cancelar</a>
+</form>
