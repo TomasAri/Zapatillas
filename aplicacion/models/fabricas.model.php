@@ -54,10 +54,12 @@
             return $query->fetchAll(PDO::FETCH_OBJ);
         }
 
-        public function eraseFab($id){
+        public function eraseFab($id) {
+            $deleteModelsQuery = $this->db->prepare('DELETE FROM modelo WHERE id_fabrica = ?');
+            $deleteModelsQuery->execute([$id]);
+        
             $query = $this->db->prepare('DELETE FROM fabrica WHERE id = ?');
             $query->execute([$id]);
-            
         }
 
         public function updateFabrica($id, $nombre, $importador, $pais, $cantidad) {

@@ -17,7 +17,7 @@
         <select name="id_fabrica" class="form-control" required>
             <option value="" disabled selected>Seleccione una fábrica</option>
             <?php foreach ($fabricas as $fabrica): ?>
-                <option value="<?= $fabrica->id; ?>"><?= $fabrica->nombre; ?></option> <!-- Cambiado id_fabrica a id -->
+                <option value="<?= $fabrica->id; ?>"><?= $fabrica->nombre; ?></option>
             <?php endforeach; ?>
         </select>
     </div>

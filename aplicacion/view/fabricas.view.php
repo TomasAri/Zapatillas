@@ -31,7 +31,7 @@ class fabricasView {
     }
 
     public function showError($error) {
-        require 'plantillas/error.phtml';
+        require './plantillas/error.phtml';
     }
     
     public function showListaFabricas($fabricas) {

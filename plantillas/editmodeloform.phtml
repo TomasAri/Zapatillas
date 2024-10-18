@@ -1,15 +1,19 @@
 <h1>Editar Modelo</h1>
 
-<form action="<?='editModelo/' . $modelo->id_zapatilla ?>" method="post">
-    <label for="nombre">Nombre: </label>
-    <input type="text" name="nombre" value="<?= $modelo->nombre ?>" required>
-
-    <label for="precio">Precio:</label>
-    <input type="number" name="precio" value="<?= $modelo->precio ?>" required>
-
-    <label for="stock">Stock:</label>
-    <input type="number" name="stock" value="<?= $modelo->stock ?>" required>
-
+<?php if ($this->user): ?>
+    <form action="<?='editModelo/' . $modelo->id_zapatilla ?>" method="post">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input name="nombre" type="text" class="form-control" value="<?= $modelo->nombre ?>" required>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio:</label>
+        <input name="precio" type="number" class="form-control" value="<?= $modelo->precio ?>" required>
+    </div>
+    <div class="mb-3">
+        <label for="stock" class="form-label">Stock:</label>
+        <input name="stock" type="number" class="form-control" value="<?= $modelo->stock ?>" required>
+    </div>
     <div class="mb-3">
         <label for="id_fabrica" class="form-label">Fábrica:</label>
         <select name="id_fabrica" class="form-control" required>
@@ -19,7 +23,8 @@
             <?php endforeach; ?>
         </select>
     </div>
-
-    <button type="submit">Guardar Cambios</button>
+    
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
     <a href="<?= BASE_URL ?>">Cancelar</a>
 </form>
+<?php endif; ?>

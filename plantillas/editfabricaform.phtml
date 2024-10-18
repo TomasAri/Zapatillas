@@ -1,0 +1,33 @@
+<h1>Editar Fábrica</h1>
+
+<?php if($this->user): ?>
+    <form action="<?= BASE_URL . 'editFabrica/' . $fabrica->id ?>" method="post">
+        <div class="mb-3">
+                <label for="nombre" class="form-label">
+                    Nombre:
+                </label>
+                <input name="nombre" type="text" class="form-control" value="<?= $fabrica->nombre ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="pais" class="form-label">
+                    Pais:
+                </label>
+                <input name="pais" type="text" class="form-control" value="<?= $fabrica->pais ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="importador" class="form-label">
+                    Importador:
+                </label>
+                <input name="importador" type="text" class="form-control" value="<?= $fabrica->importador ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">
+                    Cantidad:
+                </label>
+                <input name="cantidad" type="text" class="form-control" value="<?= $fabrica->cantidad ?>" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="<?= BASE_URL ?>">Cancelar</a>
+    </form>
+<?php endif;?>

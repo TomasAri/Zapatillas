@@ -59,6 +59,13 @@
             $query = $this->db->prepare('UPDATE modelo SET nombre = ?, precio = ?, stock = ?, id_fabrica = ? WHERE id_zapatilla = ?');
             $query->execute([$nombre, $precio, $stock, $id_fabrica, $id_zapatilla]);
         }
+
+        public function getFabricaById($id_fabrica) {
+            $query = $this->db->prepare('SELECT * FROM fabrica WHERE id = ?');
+            $query->execute([$id_fabrica]);
+            return $query->fetch(PDO::FETCH_OBJ); // Devuelve la fábrica como objeto
+        }
     }
+
 
 ?>

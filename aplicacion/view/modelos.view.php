@@ -34,7 +34,7 @@ class modelosView {
     }
 
     public function showError($error) {
-        require './templates/error.phtml';
+        require './plantillas/error.phtml';
     }
 
     public function showListaModelos($modelos, $fabricas) {

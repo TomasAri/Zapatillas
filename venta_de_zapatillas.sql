@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2024 a las 02:04:14
+-- Tiempo de generación: 18-10-2024 a las 23:15:54
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -45,7 +45,7 @@ INSERT INTO `fabrica` (`id`, `nombre`, `importador`, `pais`, `cantidad`) VALUES
 (3, 'Puma', 'Luis Ignacio Martinez', 'Alemania', 70),
 (4, 'Converse', 'Thomas Shelby', 'Alemania', 50),
 (5, 'New Balance', 'Jhon Trump', 'Estados Unidos', 90),
-(6, 'DC', 'Peruano', 'Puerto rico', 5);
+(6, 'DC', 'Peruano', 'Puerto Rico', 5);
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,10 @@ INSERT INTO `modelo` (`id_zapatilla`, `id_fabrica`, `precio`, `nombre`, `stock`)
 (2, 2, 120, 'Campus 00s', 10),
 (4, 3, 150, 'Samba OG', 5),
 (9, 1, 140, 'Air Jordan', 15),
-(10, 2, 100, 'SL 72 RS', 5);
+(10, 2, 100, 'SL 72 RS', 5),
+(11, 4, 100, 'Star Player 76', 15),
+(13, 6, 120, 'Court Graffik Ss (Xw)', 10),
+(14, 5, 160, '530', 15);
 
 -- --------------------------------------------------------
 
@@ -123,13 +126,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `fabrica`
 --
 ALTER TABLE `fabrica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `modelo`
 --
 ALTER TABLE `modelo`
-  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_zapatilla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
