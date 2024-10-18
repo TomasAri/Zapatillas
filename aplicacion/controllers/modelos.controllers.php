@@ -43,6 +43,8 @@ class modelosControllers{
         $nombre_fabrica = $fabrica->nombre;
         if ($modelo) {
             return $this->view->showdetailModelo($modelo, $nombre_fabrica);
+        } else {
+            return $this->view->showError("El modelo con el ID=$id_zapatilla no existe.");
         }
     }
 

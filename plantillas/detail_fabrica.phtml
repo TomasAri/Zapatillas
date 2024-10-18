@@ -1,18 +1,8 @@
 <?php require './plantillas/layouts/header.phtml'; ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="path/to/bootstrap.min.css"> <!-- Asegúrate de incluir Bootstrap -->
-    <link rel="stylesheet" href="path/to/your/custom.css"> <!-- Tu archivo CSS personalizado -->
-    <title>Detalles de la Fábrica</title>
-</head>
-<body>
 
 <div class="container mt-5">
-    <h1 class="text-center">Detalles de la Fábrica: <?= $fabrica->nombre; ?></h1>
+    <h1 class="text-center text-secondary display-6">Detalles de la Fábrica: <?= $fabrica->nombre; ?></h1>
     
     <div class="card mb-4">
         <div class="card-header">
@@ -43,7 +33,4 @@
     </div>
 </div>
 
-<script src="path/to/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 <?php require './plantillas/layouts/footer.phtml'; ?>

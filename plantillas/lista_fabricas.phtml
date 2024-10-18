@@ -1,6 +1,8 @@
 <?php require './plantillas/layouts/header.phtml'; ?>
 
-<?php require './plantillas/addfabrica.phtml';?>
+<?php require './plantillas/layouts/tituloFabricas.phtml'; ?>
+
+<?php require './plantillas/addfabrica.phtml'; ?>
 
 <br>
 
@@ -18,7 +20,7 @@
                     <button type="button" class="btn btn-danger btn-sm ml-2">
                         <a href="deleteFab/<?=$fabrica->id;?>" class="text-white">Eliminar</a>
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm ml-2">
+                    <button type="button" class="btn btn-warning btn-sm ml-2">
                         <a href="showEditFabrica/<?=$fabrica->id;?>" class="text-white">Editar</a>
                     </button>
                 </span>
@@ -26,6 +28,5 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </ul>
-
 
 <?php require './plantillas/layouts/footer.phtml'; ?>

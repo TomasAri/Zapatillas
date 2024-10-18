@@ -1,15 +1,17 @@
 <?php require './plantillas/layouts/header.phtml'; ?>
 
+<?php require './plantillas/layouts/tituloModelos.phtml'; ?>
+
 <?php require './plantillas/addmodelo.phtml'; ?>
 
 <br>
 
 <ul class="list-group">
     <?php if (isset($modelos)): ?>
-        <?php foreach ($modelos as $modelo): ?> <!-- Cambia $modelos a $modelo aquí -->
+        <?php foreach ($modelos as $modelo): ?> 
             <li class="list-group-item item-fabrica d-flex justify-content-between align-items-center">
                 <span>
-                    <b><?= $modelo->nombre; ?></b> <!-- Asegúrate de usar $modelo -->
+                    <b><?= $modelo->nombre; ?></b> 
                 </span>
                 <span class="actions">
                     <button type="button" class="btn btn-success btn-sm">
@@ -18,14 +20,14 @@
                     <button type="button" class="btn btn-danger btn-sm ml-2">
                         <a href="deleteModel/<?= $modelo->id_zapatilla; ?>" class="text-white">Eliminar</a>
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm ml-2">
+                    <button type="button" class="btn btn-warning btn-sm ml-2">
                         <a href="showEditModelo/<?= $modelo->id_zapatilla; ?>" class="text-white">Editar</a>
                     </button>
                 </span>
             </li>
         <?php endforeach; ?>
     <?php else: ?>
-        <li class="list-group-item">No hay modelos disponibles.</li> <!-- Mensaje si no hay modelos -->
+        <li class="list-group-item">No hay modelos disponibles.</li>
     <?php endif; ?>
 </ul>
 

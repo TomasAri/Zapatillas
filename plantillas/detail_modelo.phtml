@@ -1,11 +1,23 @@
 <?php require './plantillas/layouts/header.phtml'; ?>
 
-    <?php if(isset($modelo)): ?>
-        <h1> <?=$modelo->nombre ?> </h1>
-        <p>Precio: <?=$modelo->precio ?> </p>
-        <p>Stock: <?=$modelo->stock ?></p>
-        <p>Fabrica: <?= $nombre_fabrica ?></p>
-        <a href="listarmodelo/">Volver</a>
-    <?php endif; ?>
+<div class="container mt-5">
+    <h1 class="text-center text-secondary display-6">Detalles del Modelo: <?= $modelo->nombre; ?></h1>
     
-    <?php require './plantillas/layouts/footer.phtml'?>
+    <div class="card mb-4">
+        <div class="card-header">
+            Información del Modelo
+        </div>
+        <div class="card-body">
+            <p><strong>Precio:</strong> $<?= number_format($modelo->precio, 2); ?></p>
+            <p><strong>Stock:</strong> <?= $modelo->stock; ?></p>
+            <p><strong>Fábrica:</strong> <?= $fabrica; ?></p> <!-- Aquí ya no es id_fabrica sino el nombre de la fábrica -->        
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a href="listarmodelo" class="btn btn-primary">Volver a la lista de modelos</a>
+    </div>
+</div>
+
+
+<?php require './plantillas/layouts/footer.phtml'; ?>

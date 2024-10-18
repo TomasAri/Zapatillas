@@ -29,7 +29,7 @@ class modelosView {
         require './plantillas/detail_fabrica.phtml';
     }
 
-    public function showdetailModelo($modelo, $nombre_fabrica){
+    public function showdetailModelo($modelo, $fabrica){
         require './plantillas/detail_modelo.phtml';
     }
 
