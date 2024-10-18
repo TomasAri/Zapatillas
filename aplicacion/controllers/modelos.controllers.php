@@ -38,4 +38,47 @@ class modelosControllers{
             return $this->view->showdetailModelo($modelo);
         }
     }
+
+    public function listaaddModelo() {
+        $modelos = $this->models->getAllModelos();
+        $fabricas = $this->models->getAllFabricas(); 
+        $this->view->showListaModelos($modelos, $fabricas); 
+    }
+
+    public function addModelo() {
+        if (!isset($_POST['nombre']) || empty($_POST['nombre'])) {
+            return $this->view->showError('Falta completar el nombre');
+        }
+    
+        if (!isset($_POST['id_fabrica']) || empty($_POST['id_fabrica'])) {
+            return $this->view->showError('Falta completar la fábrica');
+        }
+    
+        if (!isset($_POST['stock']) || empty($_POST['stock'])) {
+            return $this->view->showError('Falta completar el stock');
+        }
+    
+        if (!isset($_POST['precio']) || empty($_POST['precio'])) {
+            return $this->view->showError('Falta completar el precio');
+        }
+    
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio']; 
+        $stock = $_POST['stock']; 
+        $id_fabrica = $_POST['id_fabrica']; 
+    
+        
+        $fabricas = $this->models->getAllFabricas();
+        $fabrica_ids = array_map(function($fabrica) {
+            return $fabrica->id; 
+        }, $fabricas);
+
+        if (!in_array($id_fabrica, $fabrica_ids)) {
+            return $this->view->showError('El ID de la fábrica no existe');
+        }
+    
+        $id = $this->models->insertModelo($nombre, $precio, $stock, $id_fabrica);
+    
+        header('Location: ' . 'showAddModelo/');
+    }
 }

@@ -42,9 +42,10 @@ switch($params[0]){
         $controller->showFabricaDetails($params[1], $models); // El segundo parámetro es el ID de la fábrica
         break;
     case 'detallesmodelo':
-        sessionAuth($res);
         $controller = new modelosControllers($res);
-        $controller -> showModeloDetails($params[1]);
+        $controller2 = new fabricasControllers($res);
+        $models = $controller2-> showFabricasid($params[1]);
+        $controller->showModeloDetails($params[1], $models);
         break;
     case 'showAddFabrica':
         sessionAuth($res);
@@ -52,11 +53,23 @@ switch($params[0]){
         $controller = new fabricasControllers($res);
         $controller -> ListaaddFab();
         break; 
-    case 'addFabrica':
+        case 'addFabrica':
+            sessionAuth($res);
+            verifyAuth($res);
+            $controller = new fabricasControllers($res);
+            $controller -> addFab();
+            break;
+        case 'showAddModelo':
+            sessionAuth($res);
+            verifyAuth($res);
+            $controller = new modelosControllers($res);
+            $controller->listaaddModelo(); // Asegúrate de que esto sea correcto
+            break;
+    case 'addModelo':
         sessionAuth($res);
         verifyAuth($res);
-        $controller = new fabricasControllers($res);
-        $controller -> addFab();
+        $controller = new modelosControllers($res);
+        $controller->addModelo(); // Llama al método para agregar un modelo
         break;
     case 'delete':
         sessionAuth($res);
@@ -64,11 +77,17 @@ switch($params[0]){
         $controller = new fabricasControllers($res);
         $controller-> deleteFab($params[1]);
         break;
-    case 'edit':
+    case 'showEditFabrica':
         sessionAuth($res);
         verifyAuth($res);
         $controller = new fabricasControllers($res);
-        $controller-> editFab($_POST['id']);
+        $controller->showEditFabrica($params[1]); // El segundo parámetro es el ID de la fábrica
+        break;
+    case 'editFabrica':
+        sessionAuth($res);
+        verifyAuth($res);
+        $controller = new fabricasControllers($res);
+        $controller->editFab($params[1]);
         break;
     case 'showLogin':
         $controller = new AuthControllers();

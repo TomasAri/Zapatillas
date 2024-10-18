@@ -1,0 +1,26 @@
+<?php if ($this->user): ?>
+    <form method="post" action="addModelo">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input name="nombre" type="text" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio:</label>
+        <input name="precio" type="number" step="0.01" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="stock" class="form-label">Stock:</label>
+        <input name="stock" type="number" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="id_fabrica" class="form-label">Fábrica:</label>
+        <select name="id_fabrica" class="form-control" required>
+            <option value="" disabled selected>Seleccione una fábrica</option>
+            <?php foreach ($fabricas as $fabrica): ?>
+                <option value="<?= $fabrica->id; ?>"><?= $fabrica->nombre; ?></option> <!-- Cambiado id_fabrica a id -->
+            <?php endforeach; ?>
+</select>
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar Modelo</button>
+</form>
+<?php endif; ?>

@@ -16,6 +16,7 @@
     
             return $modelos;
         }
+
         public function getModelosId($id_fabrica) {
             $query = $this->db->prepare('SELECT * FROM modelo WHERE id_fabrica = ?');
             $query->execute([$id_fabrica]);
@@ -34,6 +35,25 @@
             return $modelo;
         }
     
+        public function getAllModelos(){
+            $query = $this->db->prepare('SELECT * FROM modelo');
+            $query->execute();
+
+            return $query->fetchAll(PDO::FETCH_OBJ);
+        }
+
+
+        public function insertModelo($nombre, $precio, $stock, $id_fabrica) {
+            $query = $this->db->prepare('INSERT INTO modelo(nombre, precio, stock, id_fabrica) VALUES (?, ?, ?, ?)');
+            $query->execute([$nombre, $precio, $stock, $id_fabrica]);
+            return $this->db->lastInsertId();
+        }
+
+        public function getAllFabricas() {
+            $query = $this->db->prepare('SELECT * FROM fabrica');
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_OBJ); 
+        }
     }
 
 ?>

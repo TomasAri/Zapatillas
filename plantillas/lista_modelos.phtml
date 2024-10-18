@@ -1,0 +1,32 @@
+<?php require './plantillas/layouts/header.phtml'; ?>
+
+<?php require './plantillas/addmodelo.phtml'; ?>
+
+ 
+
+<ul class="list-group">
+    <?php if (isset($modelos)): ?>
+        <?php foreach ($modelos as $modelo): ?> <!-- Cambia $modelos a $modelo aquí -->
+            <li class="list-group-item item-fabrica d-flex justify-content-between align-items-center">
+                <span>
+                    <b><?= $modelo->nombre; ?></b> <!-- Asegúrate de usar $modelo -->
+                </span>
+                <span class="actions">
+                    <button type="button" class="btn btn-success btn-sm">
+                        <a href="detallesmodelo/<?= $modelo->id_zapatilla; ?>" class="text-white">Ver más</a>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm ml-2">
+                        <a href="delete/<?= $modelo->id_zapatilla; ?>" class="text-white">Eliminar</a>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm ml-2">
+                        <a href="edit/<?= $modelo->id_zapatilla; ?>" class="text-white">Editar</a>
+                    </button>
+                </span>
+            </li>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <li class="list-group-item">No hay modelos disponibles.</li> <!-- Mensaje si no hay modelos -->
+    <?php endif; ?>
+</ul>
+
+<?php require './plantillas/layouts/footer.phtml'; ?>

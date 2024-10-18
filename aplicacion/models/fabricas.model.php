@@ -38,6 +38,15 @@
     
         }
 
+        public function getFabricasId($id) {
+            $query = $this->db->prepare('SELECT * FROM fabrica WHERE id = ?');
+            $query->execute([$id]);
+
+            $fabrica = $query->fetchAll(PDO::FETCH_OBJ); 
+            
+            return $fabrica;
+        }
+
         public function getAllFabricas(){
             $query = $this->db->prepare('SELECT * FROM fabrica');
             $query->execute();
@@ -51,8 +60,8 @@
             
         }
 
-        public function updateFab($id, $nombre, $importador, $pais, $cantidad) {
-            $query = $this->db->prepare('UPDATE fabrica SET nombre=?, importador=?, pais=?, cantidad=? WHERE Id=?');
+        public function updateFabrica($id, $nombre, $importador, $pais, $cantidad) {
+            $query = $this->db->prepare('UPDATE fabrica SET nombre = ?, importador = ?, pais = ?, cantidad = ? WHERE id = ?');
             $query->execute([$nombre, $importador, $pais, $cantidad, $id]);
         }
     }

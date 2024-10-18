@@ -1,13 +1,18 @@
 <h1>Editar Fábrica</h1>
 
-<form action="update" method="post">
-    <input type="hidden" name="id" value="<?=$fabrica->id;?>">
-    
-    <!-- Otros campos del formulario -->
-    <input type="text" name="nombre" value="<?=$fabrica->nombre;?>" placeholder="Ingrese el nombre de la fábrica">
-    <input type="text" name="importador" value="<?=$fabrica->importador;?>" placeholder="Ingrese el importador"> 
-    <input type="text" name="pais" value="<?=$fabrica->pais;?>" placeholder="Ingrese el país"> 
-    <input type="number" name="cantidad" value="<?=$fabrica->cantidad;?>" placeholder="Ingrese la cantidad"> 
-    
-    <button type="submit">EDITAR</button>
+<form action="<?= BASE_URL . 'editFabrica/' . $fabrica->id ?>" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" value="<?= $fabrica->nombre ?>" required>
+
+    <label for="importador">Importador:</label>
+    <input type="text" name="importador" value="<?= $fabrica->importador ?>" required>
+
+    <label for="pais">País:</label>
+    <input type="text" name="pais" value="<?= $fabrica->pais ?>" required>
+
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" name="cantidad" value="<?= $fabrica->cantidad ?>" required>
+
+    <button type="submit">Guardar Cambios</button>
+    <a href="<?= BASE_URL . 'listarfabrica' ?>">Cancelar</a>
 </form>

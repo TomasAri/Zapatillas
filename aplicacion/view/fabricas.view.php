@@ -38,6 +38,11 @@ class fabricasView {
         require './plantillas/lista_fabricas.phtml';
     }
 
+    public function showEditFabrica($fabrica) {
+        // Aca se carga una plantilla que incluye el formulario para editar una fábrica
+        require './plantillas/edit_fabrica.phtml';
+    }
+
     
 }
 ?>

@@ -37,6 +37,9 @@ class modelosView {
         require 'templates/error.phtml';
     }
 
-    
+    public function showListaModelos($modelos, $fabricas) {
+        require './plantillas/lista_modelos.phtml'; // Cargar la lista de modelos
+        require './plantillas/addmodelo.phtml'; // Cargar el formulario para agregar modelos
+    }
 }
 ?>
