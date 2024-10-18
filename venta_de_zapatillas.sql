@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 20:50:13
+-- Tiempo de generación: 18-10-2024 a las 02:04:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -45,16 +45,7 @@ INSERT INTO `fabrica` (`id`, `nombre`, `importador`, `pais`, `cantidad`) VALUES
 (3, 'Puma', 'Luis Ignacio Martinez', 'Alemania', 70),
 (4, 'Converse', 'Thomas Shelby', 'Alemania', 50),
 (5, 'New Balance', 'Jhon Trump', 'Estados Unidos', 90),
-(6, 'DC', 'Peruano', 'Puerto rico', 5),
-(7, 'dsadsa', 'dsadas', 'asadasd', 50),
-(8, 'dadsadas', 'adasd', 'dsadsa', 88),
-(9, 'qwewq', 'qeeq', 'eqweq', 0),
-(10, '3123', '132', '1231', 22),
-(11, '3123', '132', '1231', 22),
-(12, 'sfds', 'sfds', 'fdsf', 22),
-(13, 'dsadsa', 'dasda', 'dsadas', 0),
-(14, 'dsadsa', 'dasda', 'dsadas', 0),
-(15, 'ri', 'jsa', 'pa', 22);
+(6, 'DC', 'Peruano', 'Puerto rico', 5);
 
 -- --------------------------------------------------------
 
@@ -132,7 +123,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `fabrica`
 --
 ALTER TABLE `fabrica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `modelo`
